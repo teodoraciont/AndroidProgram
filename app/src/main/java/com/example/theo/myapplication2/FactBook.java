@@ -1,6 +1,8 @@
 package com.example.theo.myapplication2;
 
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 public class FactBook {
@@ -14,7 +16,8 @@ public class FactBook {
             "The state of Florida is bigger than England.",
             "Some penguins can leap 2-3 meters out of the water.",
             "On average, it takes 66 days to form a new habit.",
-            "Mammoths still walked the earth when the Great Pyramid was being built." };
+            "Mammoths still walked the earth when the Great Pyramid was being built."
+    };
     public String getFact() {
         String fact = "";
         Random randomGenerator = new Random();
@@ -22,4 +25,33 @@ public class FactBook {
         fact = mFacts[randomNumber];
         return fact;
     }
+
+    public String[] removeElements( String deleteMe) {
+        List result = new LinkedList();
+        for(String item : mFacts){
+            if  (deleteMe!=null){
+                if(!deleteMe.equals(item)) {
+                    result.add(item);
+                }
+            }
+        }
+        return (String[]) result.toArray(mFacts);
+    }
+
+
+    public String[] showAllFacts() {
+       return mFacts;
+    }
+
+    public String showAllFactsLikeOneString() {
+        String allFacts = "";
+        for(String item : mFacts){
+            if (item!=null){
+                allFacts = allFacts +"  "+ item ;
+            }
+        }
+        allFacts = allFacts +"  "+ mFacts.length ;
+        return allFacts;
+    }
+
 }

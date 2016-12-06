@@ -30,13 +30,58 @@
         android:textSize="24sp"
         android:textColor="@android:color/white"/>
 
-    <Button
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Another Fun Fact"
-        android:id="@+id/showFactButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/white"
-        android:textColor="#51b46d"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/showFactButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_weight="0.5"
+            android:text="Show Another"
+            android:background="@android:color/white"
+            android:textColor="#51b46d"
+            />
+
+        <Button
+            android:id="@+id/deleteFactButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Delete Fact"
+            android:background="@android:color/white"
+            android:textColor="#51b46d"
+            />
+    </LinearLayout>
+
+
+
+
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Show Another Fun Fact"-->
+        <!--android:id="@+id/showFactButton"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:textColor="#51b46d"/>-->
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Delete This Fun Fact"-->
+        <!--android:id="@+id/deleteFactButton"-->
+
+        <!--android:layout_alignParentLeft="false"-->
+        <!--android:layout_alignParentStart="false"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:textColor="#51b46d"/>-->
 </RelativeLayout>
