@@ -4,7 +4,6 @@ package com.example.theo.myapplication2;
 import java.util.Random;
 
 public class FactBook {
-    // Fields (Member Variables) - Properties about the object
     private String[] mFacts = {
             "Ants stretch when they wake up in the morning.",
             "Ostriches can run faster than horses.",
@@ -16,11 +15,8 @@ public class FactBook {
             "Some penguins can leap 2-3 meters out of the water.",
             "On average, it takes 66 days to form a new habit.",
             "Mammoths still walked the earth when the Great Pyramid was being built." };
-
-    // Methods - Actions the object can take
     public String getFact() {
         String fact = "";
-        // Randomly select a fact
         Random randomGenerator = new Random();
         int randomNumber = randomGenerator.nextInt(mFacts.length);
         fact = mFacts[randomNumber];
