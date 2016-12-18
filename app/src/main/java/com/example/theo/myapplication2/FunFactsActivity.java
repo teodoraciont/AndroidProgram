@@ -8,48 +8,87 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class FunFactsActivity extends AppCompatActivity {
-    public static final String TAG = FunFactsActivity.class.getSimpleName();
     private FactBook mFactBook = new FactBook();
     private ColorWheel mColorWheel = new ColorWheel();
-    // Declare our View variables
     private TextView mFactTextView;
-    private Button mShowFactButton,mDeleteFactButton;
+    private Button mNextFactButton,mDeleteFactButton,mPrevFactButton;
     private RelativeLayout mRelativeLayout;
+    int numberIndex = 0;
+    String fact = mFactBook.getFactByIndex(numberIndex);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fun_facts);
         mFactTextView = (TextView) findViewById(R.id.factTextView);
-        mShowFactButton = (Button) findViewById(R.id.showFactButton);
+        mFactTextView.setText(fact);
+        mNextFactButton = (Button) findViewById(R.id.showFactButton);
+        mPrevFactButton = (Button) findViewById(R.id.prevFactButton);
         mDeleteFactButton = (Button) findViewById(R.id.deleteFactButton);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
-//      for view
-        View.OnClickListener listener = new View.OnClickListener() {
+//      for next
+        View.OnClickListener next_listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fact = mFactBook.getFact();
-                int color = mColorWheel.getColor();
-                mFactTextView.setText(fact);
-                mRelativeLayout.setBackgroundColor(color);
-                mShowFactButton.setTextColor(color);
+                numberIndex++;
+                fact = mFactBook.getFactByIndex(numberIndex);
+                if (fact!=null){
+                    int color = mColorWheel.getColor();
+                    mFactTextView.setText(fact);
+                    mRelativeLayout.setBackgroundColor(color);
+//                    mNextFactButton.setTextColor(color);
+                } else {
+                    numberIndex=0;
+                    fact = mFactBook.getFactByIndex(numberIndex);
+                    int color = mColorWheel.getColor();
+                    mFactTextView.setText(fact);
+                    mRelativeLayout.setBackgroundColor(color);
+//                    mNextFactButton.setTextColor(color);
+
+                }
+            }
+        };
+//      for prev
+        View.OnClickListener prev_listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numberIndex--;
+                fact = mFactBook.getFactByIndex(numberIndex);
+                if (fact!=null){
+                    int color = mColorWheel.getColor();
+                    mFactTextView.setText(fact);
+                    mRelativeLayout.setBackgroundColor(color);
+//                    mNextFactButton.setTextColor(color);
+                } else {
+                    numberIndex=mFactBook.getFacts().length-1;
+                    fact = mFactBook.getFactByIndex(numberIndex);
+                    int color = mColorWheel.getColor();
+                    mFactTextView.setText(fact);
+                    mRelativeLayout.setBackgroundColor(color);
+//                    mNextFactButton.setTextColor(color);
+                }
             }
         };
 //      for delete
         View.OnClickListener listener_delete = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fact = mFactBook.getFact();
-                String[] delete =mFactBook.removeElements(fact);
-                String  allFactsString = mFactBook.showAllFactsLikeOneString();
+                mFactBook.removeElements(fact);
+                fact = mFactBook.getFactByIndex(numberIndex);
+                if (fact!=null) {
+                    mFactTextView.setText(fact);
+                } else {
+                    fact=mFactBook.getFactByIndex(0);
+                    mFactTextView.setText(fact);
+                }
                 int color = mColorWheel.getColor();
-                mFactTextView.setText(allFactsString);
                 mRelativeLayout.setBackgroundColor(color);
                 mDeleteFactButton.setTextColor(color);
             }
         };
 
-        mShowFactButton.setOnClickListener(listener);
+        mNextFactButton.setOnClickListener(next_listener);
+        mPrevFactButton.setOnClickListener(prev_listener);
         mDeleteFactButton.setOnClickListener(listener_delete);
     }
 }
