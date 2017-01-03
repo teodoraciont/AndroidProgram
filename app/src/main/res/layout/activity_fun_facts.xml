@@ -24,8 +24,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/prevFactButton"
         android:background="@android:drawable/ic_media_previous" />
 
@@ -37,43 +35,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@android:drawable/ic_media_next" />
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:weightSum="1"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_toRightOf="@+id/factTextView"-->
-        <!--android:layout_toEndOf="@+id/factTextView"-->
-        <!--android:layout_marginLeft="18dp"-->
-        <!--android:layout_marginStart="18dp"-->
-        <!--android:layout_marginBottom="65dp">-->
-
-        <!--<Button-->
-            <!--android:id="@+id/deleteFactButton"-->
-            <!--android:layout_width="77dp"-->
-            <!--android:layout_height="37dp"-->
-            <!--android:text="Delete"-->
-            <!--android:background="@android:drawable/ic_menu_delete"-->
-            <!--android:textColor="#51b46d" />-->
-
-        <!--<Button-->
-            <!--android:id="@+id/editFactButton"-->
-            <!--android:layout_width="54dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_alignParentTop="false"-->
-            <!--android:text="Edit"-->
-            <!--android:background="@android:drawable/ic_menu_edit"-->
-            <!--android:textColor="#51b46d" />-->
-    <!--</LinearLayout>-->
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:id="@+id/deleteFactButton"
 
         android:background="@android:drawable/ic_menu_delete"
@@ -88,6 +53,61 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/editFactButton"
 
-        android:background="@android:drawable/ic_menu_edit" />
+        android:background="@android:drawable/ic_menu_edit"
+        android:layout_alignTop="@+id/deleteFactButton" />
+
+    <ToggleButton
+        android:text="Unic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/showOption"
+        android:layout_centerHorizontal="true"
+        tools:text="Unic"
+        android:textOff="One"
+        android:textOn="All"
+        style="@style/Base.TextAppearance.AppCompat.SearchResult.Subtitle"
+        android:checked="false"
+        android:layout_alignBottom="@+id/prevFactButton"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textColor="@android:color/darker_gray"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addFactButton"
+        android:background="@android:drawable/ic_menu_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/showOption"
+        android:layout_alignStart="@+id/showOption"
+        android:layout_alignRight="@+id/showOption"
+        android:layout_alignEnd="@+id/showOption"
+        android:layout_alignTop="@+id/deleteFactButton"
+        android:visibility="visible"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/newFact"
+        android:layout_toRightOf="@+id/newFact"
+        android:layout_toEndOf="@+id/newFact"
+        android:visibility="invisible"
+        android:id="@+id/mSaveNewFact"
+        android:text="Save" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="Your fun fact..."
+        android:visibility="invisible"
+        android:id="@+id/newFact"
+        android:layout_alignTop="@+id/factTextView"
+        android:layout_toLeftOf="@+id/editFactButton"
+        android:layout_toStartOf="@+id/editFactButton"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp" />
 
 </RelativeLayout>

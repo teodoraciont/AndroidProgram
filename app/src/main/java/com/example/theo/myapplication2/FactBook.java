@@ -1,6 +1,8 @@
 package com.example.theo.myapplication2;
 
 
+import android.text.Editable;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,13 +13,6 @@ public class FactBook {
             "1.Ants stretch when they wake up in the morning.",
             "2.Ostriches can run faster than horses.",
             "3.Olympic gold medals are actually made mostly of silver.",
-//            "You are born with 300 bones; by the time you are an adult you will have 206.",
-//            "It takes about 8 minutes for light from the Sun to reach Earth.",
-//            "Some bamboo plants can grow almost a meter in just one day.",
-//            "The state of Florida is bigger than England.",
-//            "Some penguins can leap 2-3 meters out of the water.",
-//            "On average, it takes 66 days to form a new habit.",
-//            "Mammoths still walked the earth when the Great Pyramid was being built."
     };
     public String[] getFacts(){
         return mFacts;
@@ -64,7 +59,15 @@ public class FactBook {
         mFacts = Arrays.copyOf(mFacts, mFacts.length-number);
         return (String[]) result.toArray(mFacts);
     }
-
+    public String[] addElement (String addMe) {
+        List result = new LinkedList();
+        for (String item : mFacts) {
+            result.add(item);
+        }
+        result.add(addMe);
+        mFacts = Arrays.copyOf(mFacts, mFacts.length +1);
+        return (String[]) result.toArray(mFacts);
+    }
 
     public String[] showAllFacts() {
        return mFacts;
