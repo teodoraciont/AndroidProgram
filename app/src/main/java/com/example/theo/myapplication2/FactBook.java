@@ -43,6 +43,23 @@ public class FactBook {
         return null;
     }
 
+    public String[] editFact( int pos, String editMe) {
+        List result = new LinkedList();
+        /*String oldElement= */
+        mFacts[pos]=editMe;
+//        if (editMe!=null){
+//            for(String item : mFacts){
+//                if(oldElement.equals(item)) {
+//                    item = editMe;
+//                }
+//                result.add(item);
+//            }
+//        }
+//        mFacts = Arrays.copyOf(mFacts, mFacts.length);
+//        return (String[]) result.toArray(mFacts);
+        return mFacts;
+    }
+
     public String[] removeElements( String deleteMe) {
         List result = new LinkedList();
         int number=0;

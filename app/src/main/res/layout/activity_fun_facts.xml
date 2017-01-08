@@ -70,7 +70,8 @@
         android:layout_alignBottom="@+id/prevFactButton"
         android:textColorLink="@color/colorPrimaryDark"
         android:textColor="@android:color/darker_gray"
-        android:visibility="visible" />
+        android:visibility="visible"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -109,5 +110,17 @@
         android:layout_toStartOf="@+id/editFactButton"
         android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp" />
+
+    <Button
+        android:text="Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/mSaveNewFact"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/editFactConfirmButton"
+        android:visibility="invisible"
+
+        />
 
 </RelativeLayout>
