@@ -175,7 +175,7 @@ public class FunFactsActivity extends AppCompatActivity {
         mEditFactButton.setVisibility(View.VISIBLE);
         mEditFactButton.setVisibility(View.VISIBLE);
         mAddFactButton.setVisibility(View.VISIBLE);
-        mShowOption.setVisibility(View.VISIBLE);
+//        mShowOption.setVisibility(View.VISIBLE);
         return true;
     }
 }

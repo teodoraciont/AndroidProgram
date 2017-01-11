@@ -70,7 +70,7 @@
         android:layout_alignBottom="@+id/prevFactButton"
         android:textColorLink="@color/colorPrimaryDark"
         android:textColor="@android:color/darker_gray"
-        android:visibility="visible"
+        android:visibility="invisible"
         />
 
     <Button
@@ -121,6 +121,18 @@
         android:id="@+id/editFactConfirmButton"
         android:visibility="invisible"
 
+        />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prevFactButton"
+        android:layout_alignLeft="@+id/newFact"
+        android:layout_alignStart="@+id/newFact"
+        android:layout_marginTop="82dp"
+        android:id="@+id/textView"
+        android:visibility="invisible"
         />
 
 </RelativeLayout>
